@@ -15,17 +15,28 @@ html, body {
     background-attachment: fixed;
 }
 
+.btekst {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 2em;
+    color: black;
+    font-size: 100px;
+}
+
 .bilde1 {
-    background-image: url(/TASK-2/imgs/bilde1.jpg);
+    background-image: url(./imgs/bilde1.jpg);
     min-height: 100%;
 }
 
 .bilde2 {
-    background-image: url(/TASK-2/imgs/bilde2.jpg);
+    background-image: url(./imgs/bilde2.jpg);
     min-height: 400px;
 }
 
 .bilde3 {
-    background-image: url(/TASK-2/imgs/bilde3.jpg);
+    background-image: url(./imgs/bilde3.jpg);
     min-height: 400px;
 }
