@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dropdown.css">
+    <title>Test Site</title>
+</head>
+<body>
+
+    <div class="container">
+        <form action="action_page.php" method="post">
+      
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" name="firstname" placeholder="Your name here..">
+      
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" name="lastname" placeholder="Your last name here..">
+      
+            <label for="gender">Country</label>
+            <select id="country" name="country" required>
+                <option value="" class="placeholder">Choose your country..</option>
+                <option value="NO">Norway</option>
+                <option value="SE">Sweden</option>
+                <option value="DK">Denmark</option>
+                <option value="FI">Finland</option>
+                <option value="IS">Iceland</option>
+                <option value="UK">United Kingdom</option>
+            </select>
+
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender" required>
+                <option value="" class="placeholder">Choose your gender..</option>
+                <option value="Man">Man</option>
+                <option value="Woman">Woman</option>
+                <option value="Other">Other</option>
+            </select>
+      
+            <label for="subject">Subject</label>
+          <textarea id="subject" name="subject" placeholder="Give me feedback.." style="height:200px"></textarea>
+      
+          <input type="submit" value="Submit">
+          <input type="reset" value="Reset">
+      
+        </form>
+    </div>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            var country = document.getElementById('country');
+            var gender = document.getElementById('gender');
+            
+            if (country.value === "" || gender.value === "") {
+                e.preventDefault();
+                alert("Please select both a country and a gender.");
+            }
+        });
+    </script>
+
+</body>
+</html>
