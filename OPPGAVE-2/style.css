@@ -3,7 +3,7 @@ html, body {
     margin: 5px;
     font-family: Arial, sans-serif;
     line-height: 1.5em;
-    color: darkslategray;
+    /* color: darkslategray; */
 }
 
 .bilde1, .bilde2, .bilde3 {
