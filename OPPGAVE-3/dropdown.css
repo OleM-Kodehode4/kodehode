@@ -1,3 +1,4 @@
+html, body,
 input[type=text], select, textarea, reset {
     width: 100%; 
     padding: 12px; 
