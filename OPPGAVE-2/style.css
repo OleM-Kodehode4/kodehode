@@ -1,0 +1,57 @@
+html, body {
+    height: 100%;
+    margin: 5px;
+    font-family: Arial, sans-serif;
+    line-height: 1.5em;
+    color: darkslategray;
+}
+
+.bilde1, .bilde2, .bilde3 {
+    position: relative;
+    opacity: 0.70;
+    background-position:center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.btekst {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    color: black;
+    font-size: 27px;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+}
+
+.btekst .grense {
+    background-color: transparent;
+    color: white;
+    padding: 20px;
+}
+
+.btekst .grense.trans {
+    background-color: transparent;
+}
+
+.bilde1 {
+    background-image: url(./imgs/bilde1.jpg);
+    min-height: 100%;
+}
+
+.bilde2 {
+    background-image: url(./imgs/bilde2.jpg);
+    min-height: 400px;
+}
+
+.bilde3 {
+    background-image: url(./imgs/bilde3.jpg);
+    min-height: 400px;
+}
+
+.sandfolie {
+    text-align: center;
+    padding: 50px 80px;
+}
