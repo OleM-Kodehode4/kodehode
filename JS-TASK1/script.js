@@ -1,3 +1,10 @@
+// JSDoc Comment
+/**
+ * @param {Array} 
+ * @param {number} 
+ * @returns {string} 
+ */
+
 //OPPGAVE-1
 const setning = "Dette er en veldig lang setning!";
 
@@ -68,7 +75,7 @@ ukedagTekst("Mandag");
 
 //OPPGAVE-4
 function sjekkBokstaver(tekst) {
-    tekst = tekst.trim();
+    tekst = tekst.trim().toLowerCase();
     if (tekst.length === 0){
         console.log("Skriv ett gyldig ord");
         return false;
@@ -102,7 +109,7 @@ function finnTekst (tekst, liste) {
 console.log(finnTekst("Salah", ["Messi", "Salah", "Son", "Ronaldo"]))
 
 //OPPGAVE-6
-let liste = ["pizza", "burger", "fisk", "fiskebolla", "tortilla", "nachos", "løbsteik", "fløtegratinertepotete"]
+let liste = ["pizza", "burger", "fisk", "fiskebolla", "tortilla", "nachos", "løvsteik", "fløtegratinertepotete"]
 
 function firstAndLast (list){
     let first;
@@ -113,6 +120,84 @@ function firstAndLast (list){
 }
 let svar;
 
-
 svar = firstAndLast(liste);
 console.log(svar);
+
+// OPPGÅVE 7
+function checkForTextJavaScript(text){
+    return text.includes("JavaScript")
+}
+
+console.log(checkForTextJavaScript("Dette er en tekst som inneholder ordet JavaScript")) 
+
+//OPPGAVE 9
+function checkAge(age){
+    if (age < 0){
+        return "Du er ikke født";
+    }else{
+        if (age < 13){
+            return "Barn";
+    }
+    if (age >= 13 && age <= 19){
+        return "Tennåring";
+    }
+    if (age >= 20 && age <=64){
+        return "Voksen";
+    } else {
+        return "Pensjonist"
+    }
+    }
+}
+
+console.log(checkAge(20));
+
+//OPPGAVE 10
+function checkVocal(char){
+    const charLowerCase = char.toLowerCase();
+    const vocals = "aeiouyæøå";
+    const v = ["a", "e", "i", "o", "u", "y", "æ", "ø", "å"]
+
+    if (vocals.includes(charLowerCase)){
+        return "Vokal";
+    } else {
+        return "Konsonant"
+    }
+}
+
+console.log(checkVocal("E"))
+
+//OPPGAVE 11
+function getSeason(month){
+    month = month.toLowerCase();
+    switch(month){
+        case "december":
+        case "january":
+        case "february":
+            return "Winter";
+        case "march":
+        case "april":
+        case "may":
+            return "Spring"
+        case "june":
+        case "july":
+        case "august":
+            return "Summer"
+        case "september":
+        case "october":
+        case "november":
+            return "Autum"
+
+        default:
+            return "Not an actual month"
+    }
+}
+
+console.log(getSeason("december"));
+
+//OPPGAVE 12
+let weatherList = ["Rainy", "Sunny", "Snowy", "Windy"];
+function Weather(){
+    console.log(weatherList.slice(1, -1));
+}
+Weather();
+console.log(weatherList);
