@@ -3,59 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./dropdown.css">
-    <title>Test Site</title>
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    
-    <div class="container">
-        <form action="action_page.php" method="post">
-      
-          <label for="fname">Fornavn</label>
-          <input type="text" id="fname" name="firstname" placeholder="Your name here..">
-      
-          <label for="lname">Etternavn</label>
-          <input type="text" id="lname" name="lastname" placeholder="Your last name here..">
-      
-            <label for="gender">Country</label>
-            <select id="country" name="country" required>
-                <option value="" class="placeholder">Choose your country..</option>
-                <option value="NO">Norge</option>
-                <option value="SE">Sverige</option>
-                <option value="DK">Danmark</option>
-                <option value="FI">Finland</option>
-                <option value="IS">Island</option>
-                <option value="UK">Storbritania</option>
-            </select>
 
-            <label for="gender">Gender</label>
-            <select id="gender" name="gender" required>
-                <option value="" class="placeholder">Velg ditt kjønn..</option>
-                <option value="Man">Mann</option>
-                <option value="Woman">Kvinne</option>
-                <option value="Other">Andre</option>
-            </select>
-      
-            <label for="subject">Subject</label>
-          <textarea id="subject" name="subject" placeholder="Give me feedback.." style="height:200px"></textarea>
-      
-          <input type="submit" value="Send Inn">
-          <input type="reset" value="Tilbakestill">
-      
+    <div class="container">
+        <h2>Feedback Form</h2>
+        <form action="#" method="POST">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required placeholder="Enter your full name">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required placeholder="Enter your email address">
+
+            <button type="submit">Submit</button>
         </form>
     </div>
-
-    <script>
-        document.querySelector('form').addEventListener('submit', function(e) {
-            var country = document.getElementById('country');
-            var gender = document.getElementById('gender');
-            
-            if (country.value === "" || gender.value === "") {
-                e.preventDefault();
-                alert("Please select both a country and a gender.");
-            }
-        });
-    </script>
 
 </body>
 </html>
