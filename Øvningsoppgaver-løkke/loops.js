@@ -49,26 +49,6 @@ for (let i = orgTekst.length - 1; i >= 0; i--) {
 
 console.log(reversertTekst);
 
-function resetGame() {
-  scorePlayer1 = 0;
-  scorePlayer2 = 0;
-  updateScore();
-  winnerMessage.style.display = "none"; // Skjul vinnermeldingen
-  resetBall();
-  isPaused = false; // Fjern pause
-}
-
-// Pause-funksjon
-function togglePause() {
-  isPaused = !isPaused;
-  if (isPaused) {
-    winnerMessage.textContent = "Spillet er pausert!";
-    winnerMessage.style.display = "block";
-  } else {
-    winnerMessage.style.display = "none";
-  }
-}
-
 // OPPGAVE 6:
 console.log("OPPGAVE 6:------------------");
 // for (let tall = 1; tall <= 20; tall++){
