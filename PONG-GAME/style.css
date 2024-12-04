@@ -1,42 +1,95 @@
-#playGround{
-    background-color: black;
-    height: 450px;
-    width: 900px;
-    position: absolute;
-    top: 50px;
-    bottom: 50px;
-    left: 50px;
-    right: 50px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-#net{
-    width: 1px;
-    height: 450px;
-    border-color: white;
-    border-style:dotted;
-    position: absolute;
-    left: 450px;
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #111;
+  color: white;
+  font-family: Arial, sans-serif;
 }
 
-#playerOne{
-    width: 15px;
-    height: 35px;
-    background-color: blue;
-    position: absolute;
+.game-container {
+  position: relative;
+  width: 800px; /* Økt størrelse på spilleflaten */
+  height: 500px; /* Økt størrelse på spilleflaten */
+  background-color: #222;
+  border: 2px solid white;
+  overflow: hidden;
 }
 
-#playerTwo{
-    width: 15px;
-    height: 35px;
-    background-color: red;
-    position: absolute;
-    left: 885px;
+.winner-message {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 30px;
+  color: yellow;
+  font-weight: bold;
+  display: none; /* Start skjult */
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  border-radius: 5px;
 }
 
-#ball{
-    width: 10px;
-    height: 10px;
-    background-color: white;
-    position: absolute;
-    left: 100px;
+.paddle {
+  position: absolute;
+  width: 20px; /* Økt størrelse på padlene */
+  height: 100px; /* Økt størrelse på padlene */
+  background-color: white;
+}
+
+#paddle1 {
+  left: 0;
+}
+
+#paddle2 {
+  right: 0;
+}
+
+.ball {
+  position: absolute;
+  width: 20px; /* Økt størrelse på ballen */
+  height: 20px; /* Økt størrelse på ballen */
+  background-color: white;
+  border-radius: 50%;
+}
+
+.score {
+  position: absolute;
+  top: 20px;
+  font-size: 40px; /* Økt størrelse på poengsummen */
+  font-weight: bold;
+  color: white;
+}
+
+#score1 {
+  left: 20px;
+}
+
+#score2 {
+  right: 20px;
+}
+
+/* Pause melding */
+.paused-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  color: yellow;
+  font-weight: bold;
+  text-align: center;
+  display: none; /* Start skjult */
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 10; /* Sørg for at meldingen vises over alt annet */
 }
