@@ -9,87 +9,64 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #111;
-  color: white;
-  font-family: Arial, sans-serif;
-}
-
-.game-container {
-  position: relative;
-  width: 800px; /* Økt størrelse på spilleflaten */
-  height: 500px; /* Økt størrelse på spilleflaten */
   background-color: #222;
-  border: 2px solid white;
-  overflow: hidden;
 }
 
-.winner-message {
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 30px;
-  color: yellow;
-  font-weight: bold;
-  display: none; /* Start skjult */
-  text-align: center;
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 10px;
-  border-radius: 5px;
+#game-container {
+  position: relative;
+  width: 600px;
+  height: 400px;
+  background-color: black;
+  border: 5px solid white;
 }
 
 .paddle {
   position: absolute;
-  width: 20px; /* Økt størrelse på padlene */
-  height: 100px; /* Økt størrelse på padlene */
+  width: 10px;
+  height: 60px;
   background-color: white;
 }
 
-#paddle1 {
+#left-paddle {
   left: 0;
 }
 
-#paddle2 {
+#right-paddle {
   right: 0;
 }
 
-.ball {
+#ball {
   position: absolute;
-  width: 20px; /* Økt størrelse på ballen */
-  height: 20px; /* Økt størrelse på ballen */
+  width: 15px;
+  height: 15px;
   background-color: white;
   border-radius: 50%;
 }
 
-.score {
+#scoreboard {
   position: absolute;
-  top: 20px;
-  font-size: 40px; /* Økt størrelse på poengsummen */
-  font-weight: bold;
-  color: white;
-}
-
-#score1 {
-  left: 20px;
-}
-
-#score2 {
-  right: 20px;
-}
-
-/* Pause melding */
-.paused-message {
-  position: absolute;
-  top: 50%;
+  top: 10px;
   left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 40px;
-  color: yellow;
-  font-weight: bold;
-  text-align: center;
-  display: none; /* Start skjult */
+  transform: translateX(-50%);
+  color: white;
+  font-size: 20px;
+}
+
+#message {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
   background-color: rgba(0, 0, 0, 0.7);
+  color: white;
   padding: 20px;
   border-radius: 10px;
-  z-index: 10; /* Sørg for at meldingen vises over alt annet */
+  font-size: 24px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  display: none;
+}
+
+#message.show {
+  display: block;
 }

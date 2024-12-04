@@ -1,25 +1,26 @@
-const gameContainer = document.querySelector(".gameArea");
-const paddle1 = document.getElementById("paddle1");
-const paddle2 = document.getElementById("paddle2");
-const ball = document.getElementById("ball");
-const score1 = document.getElementById("score1");
-const score2 = document.getElementById("score2");
-const winnerMessage = document.getElementById("winner-message");
+let leftPaddle = document.getElementById("left-paddle");
+let rightPaddle = document.getElementById("right-paddle");
+let ball = document.getElementById("ball");
+let player1ScoreElem = document.getElementById("player1-score");
+let player2ScoreElem = document.getElementById("player2-score");
+let message = document.getElementById("message"); // For å vise vinnerbeskjed
 
-let ballX = 390,
-  ballY = 240,
-  ballSpeedX = 4,
-  ballSpeedY = 3;
-let paddle1Y = 200,
-  paddle2Y = 200;
-let scorePlayer1 = 0,
-  scorePlayer2 = 0;
-const paddleHeight = 100;
-const gameWidth = 800,
-  gameHeight = 500;
-const ballSize = 20;
-const paddleSpeed = 10;
-let isPaused = false;
+let leftPaddleY = 150;
+let rightPaddleY = 150;
+let ballX = 290;
+let ballY = 190;
+let ballVelocityX = 2;
+let ballVelocityY = 2;
+let player1Score = 0;
+let player2Score = 0;
+
+const PADDLE_HEIGHT = 65;
+const PADDLE_SPEED = 5;
+const BALL_RADIUS = 7;
+const GAME_HEIGHT = 400;
+const GAME_WIDTH = 600;
+const WINNING_SCORE = 5;
+
 const keyPressed = [];
 
 document.addEventListener("keydown", (e) => {
@@ -30,127 +31,123 @@ document.addEventListener("keyup", (e) => {
   keyPressed[e.key] = false;
 });
 
-function move() {
-  if (keyPressed["w"] && paddle1Y > 0) {
-    paddle1Y -= paddleSpeed;
+function movePaddles() {
+  if (keyPressed["w"] && leftPaddleY > 0) {
+    leftPaddleY -= PADDLE_SPEED;
   }
-  if (keyPressed["s"] && paddle1Y < gameHeight - paddleHeight) {
-    paddle1Y += paddleSpeed;
-  }
-
-  if (keyPressed["ArrowUp"] && paddle2Y > 0) {
-    paddle2Y -= paddleSpeed;
-  }
-  if (keyPressed["ArrowDown"] && paddle2Y < gameHeight - paddleHeight) {
-    paddle2Y += paddleSpeed;
+  if (keyPressed["s"] && leftPaddleY < GAME_HEIGHT - PADDLE_HEIGHT) {
+    leftPaddleY += PADDLE_SPEED;
   }
 
-  paddle1.style.top = `${paddle1Y}px`;
-  paddle2.style.top = `${paddle2Y}px`;
+  if (keyPressed["ArrowUp"] && rightPaddleY > 0) {
+    rightPaddleY -= PADDLE_SPEED;
+  }
+  if (keyPressed["ArrowDown"] && rightPaddleY < GAME_HEIGHT - PADDLE_HEIGHT) {
+    rightPaddleY += PADDLE_SPEED;
+  }
+
+  leftPaddle.style.top = `${leftPaddleY}px`;
+  rightPaddle.style.top = `${rightPaddleY}px`;
 }
 
-function updateGame() {
-  if (isPaused) return;
+function moveBall() {
+  ballX += ballVelocityX;
+  ballY += ballVelocityY;
 
-  move();
-
-  ballX += ballSpeedX;
-  ballY += ballSpeedY;
-
-  if (ballY <= 0 || ballY >= gameHeight - ballSize) ballSpeedY = -ballSpeedY;
+  if (ballY <= 0 || ballY >= GAME_HEIGHT - BALL_RADIUS * 2) {
+    ballVelocityY = -ballVelocityY;
+  }
 
   if (
-    ballX <= paddle1.offsetWidth &&
-    ballY >= paddle1Y &&
-    ballY <= paddle1Y + paddleHeight
-  )
-    ballSpeedX = -ballSpeedX;
+    ballX <= 10 &&
+    ballY >= leftPaddleY &&
+    ballY <= leftPaddleY + PADDLE_HEIGHT
+  ) {
+    ballVelocityX = -ballVelocityX;
+  }
   if (
-    ballX >= gameWidth - paddle2.offsetWidth - ballSize &&
-    ballY >= paddle2Y &&
-    ballY <= paddle2Y + paddleHeight
-  )
-    ballSpeedX = -ballSpeedX;
+    ballX >= GAME_WIDTH - BALL_RADIUS * 2 - 10 &&
+    ballY >= rightPaddleY &&
+    ballY <= rightPaddleY + PADDLE_HEIGHT
+  ) {
+    ballVelocityX = -ballVelocityX;
+  }
 
   if (ballX <= 0) {
-    scorePlayer2++;
-    updateScore();
-    pauseUntilKeyPress();
+    player2Score++;
     resetBall();
-  } else if (ballX >= gameWidth - ballSize) {
-    scorePlayer1++;
-    updateScore();
-    pauseUntilKeyPress();
+  }
+  if (ballX >= GAME_WIDTH - BALL_RADIUS * 2) {
+    player1Score++;
     resetBall();
   }
 
   ball.style.left = `${ballX}px`;
   ball.style.top = `${ballY}px`;
-
-  requestAnimationFrame(updateGame);
-}
-
-function updateScore() {
-  score1.textContent = scorePlayer1;
-  score2.textContent = scorePlayer2;
-
-  if (scorePlayer1 === 5) showWinner("Spiller 1 vant!");
-  if (scorePlayer2 === 5) showWinner("Spiller 2 vant!");
-}
-
-function showWinner(message) {
-  winnerMessage.textContent = message;
-  winnerMessage.style.display = "block";
-  isPaused = true;
-  setTimeout(resetGame, 2000);
 }
 
 function resetBall() {
-  ballX = gameWidth / 2 - ballSize / 2;
-  ballY = gameHeight / 2 - ballSize / 2;
-  ballSpeedX = -ballSpeedX;
-  ballSpeedY = 3;
+  ballX = GAME_WIDTH / 2 - BALL_RADIUS;
+  ballY = GAME_HEIGHT / 2 - BALL_RADIUS;
+  ballVelocityX = -ballVelocityX;
 }
 
-function resetGame() {
-  scorePlayer1 = 0;
-  scorePlayer2 = 0;
-  updateScore();
-  winnerMessage.style.display = "none";
-  resetBall();
-  isPaused = false;
+function updateScore() {
+  player1ScoreElem.textContent = player1Score;
+  player2ScoreElem.textContent = player2Score;
 }
 
-function togglePause() {
-  isPaused = !isPaused;
-  if (isPaused) {
-    winnerMessage.textContent = "Spillet er pausert!";
-    winnerMessage.style.display = "block";
-  } else {
-    winnerMessage.style.display = "none";
+function checkWinner() {
+  if (player1Score === WINNING_SCORE) {
+    message.textContent = "Spiller 1 har vunnet!";
+    message.classList.add("show");
+    resetGame();
+  } else if (player2Score === WINNING_SCORE) {
+    message.textContent = "Spiller 2 har vunnet!";
+    message.classList.add("show");
+    resetGame();
   }
 }
 
-function pauseUntilKeyPress() {
-  isPaused = false;
-  winnerMessage.textContent = "";
+function resetGame() {
+  player1Score = 0;
+  player2Score = 0;
+  updateScore();
+  ballX = GAME_WIDTH / 2 - BALL_RADIUS;
+  ballY = GAME_HEIGHT / 2 - BALL_RADIUS;
+  leftPaddleY = 150;
+  rightPaddleY = 150;
+  leftPaddle.style.top = `${leftPaddleY}px`;
+  rightPaddle.style.top = `${rightPaddleY}px`;
 
-  const resumeGame = function (e) {
-    if ((e.key === "w" || e.key === "s") && ballX <= 0) {
-      isPaused = true;
-      winnerMessage.style.display = "none";
-      document.removeEventListener("keydown", resumeGame);
-    } else if (
-      (e.key === "ArrowUp" || e.key === "ArrowDown") &&
-      ballX >= gameWidth - ballSize
-    ) {
-      isPaused = true;
-      winnerMessage.style.display = "none";
-      document.removeEventListener("keydown", resumeGame);
-    }
-  };
-
-  document.addEventListener("keydown", resumeGame);
+  setTimeout(() => {
+    message.classList.remove("show");
+  }, 3000);
 }
 
-requestAnimationFrame(updateGame);
+function resetGame() {
+  player1Score = 0;
+  player2Score = 0;
+  updateScore();
+  ballX = GAME_WIDTH / 2 - BALL_RADIUS;
+  ballY = GAME_HEIGHT / 2 - BALL_RADIUS;
+  leftPaddleY = 150;
+  rightPaddleY = 150;
+  leftPaddle.style.top = `${leftPaddleY}px`;
+  rightPaddle.style.top = `${rightPaddleY}px`;
+
+  setTimeout(() => {
+    message.textContent = "";
+  }, 3000);
+}
+
+function gameLoop() {
+  moveBall();
+  movePaddles();
+  updateScore();
+  checkWinner();
+
+  requestAnimationFrame(gameLoop);
+}
+
+requestAnimationFrame(gameLoop);
