@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    <link rel="stylesheet" href="./todo.css" />
+    <script src="./todo.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Todo list</h1>
+      <form id="task-form">
+        <input type="text" name="user-input" id="user-input" />
+        <input type="submit" value="Lagre" />
+      </form>
+      <label for="show-completed-tasks">Vis ferdige oppgaver</label>
+      <input
+        type="checkbox"
+        name="show-completed-tasks"
+        id="show-completed-tasks" />
+      <label for="sort-by">Sorter Etter:</label>
+      <select name="sort-by" id="sort-by">
+        <option value="date-asc">Dato stigende</option>
+        <option value="date-desc">Dato synkende</option>
+        <option value="alpha-asc">Alfabetisk stigende</option>
+        <option value="alpha-desc">Alfabetisk synkende</option>
+      </select>
+    </header>
+    <main id="list-container"></main>
+  </body>
+</html>

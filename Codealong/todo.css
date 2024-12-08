@@ -1,0 +1,120 @@
+:root {
+  --myBluishColor: rgb(157, 248, 231);
+  --myGreenushColor: rgb(76, 175, 80);
+  --txtColorh1: rgb(240, 240, 240);
+  --userBorder: rgb(204, 204, 204);
+  --containerColor: rgb(255, 255, 255);
+  --myDeleteButton: rgb(255, 0, 0);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--txtColorh1);
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: var(--myGreenushColor);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+header h1 {
+  padding: 20px 0;
+  margin: 0;
+}
+
+#task-form {
+  margin-top: 10px;
+  text-align: center;
+}
+
+#user-input {
+  padding: 8px;
+  border: 1px solid var(--userBorder);
+  border-radius: 5px;
+}
+
+#user-input:focus {
+  outline: none;
+  border-color: var(--myGreenushColor);
+}
+
+#list-container {
+  padding: 20px;
+  margin: 0px auto;
+}
+
+.task-container {
+  display: flex;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  margin-bottom: 15px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.description {
+  flex: 1;
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  background-color: rgb(157, 248, 231);
+  color: black;
+}
+
+.description:not([readonly]) {
+  border: 2px solid rgb(237, 198, 198);
+}
+
+.checkedbg {
+  background-color: rgba(203, 203, 203, 0.14);
+}
+
+.checked {
+  text-decoration: line-through;
+}
+
+.timestamp {
+  font-size: 12px;
+  margin-right: 10px;
+}
+
+.edit-button {
+  margin-right: 5px;
+  background-color: var(--myGreenushColor);
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+
+.delete-button {
+  margin-left: 5px;
+  background-color: var(--myDeleteButton);
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+
+.completed-checkbox {
+  /* appearance: none; */
+  width: 16px;
+  height: 16px;
+  border: 2px solid #4caf50;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: backgoround-color 0.3s, border-color 0.3s;
+}
+
+.completed-checkbox:checked {
+  background-color: var(--myBluishColor);
+}
