@@ -1,9 +1,17 @@
 import styles from './header.module.css';
 
-const Header = () =>{
-    return (
-        <h1 class={styles.header}>Hello World!</h1>
-    );
+function greet (){
+    return "Hello World! fra privat funksjon";
 }
 
-export default Header;
+export default function Header(){
+    return(
+        <h1 className={styles.header}>{greet()}</h1>
+    )
+}
+
+export function Greeting(){
+    return <h1>{greet()}</h1>
+}
+
+// export default Header;
