@@ -1,14 +1,17 @@
 import React from "react";
+import { useSpring, animated } from "react-spring";
 import styles from "./Dish.module.css";
 
-function Dish({ tittel, pris, ingredienser, kategori }) {
+function Dish({ title, price, ingredients, category }) {
+  const animation = useSpring({ opacity: 1, from: { opacity: 0 } });
+
   return (
-    <div className={`${styles.card} ${styles[kategori]}`}>
-      <h2>{tittel}</h2>
-      <p><strong>Pris:</strong> {pris}</p>
-      <p><strong>Ingredienser:</strong> {ingredienser}</p>
-      <p><strong>Kategori:</strong> {kategori}</p>
-    </div>
+    <animated.div style={animation} className={`${styles.card} ${styles[category]}`}>
+      <h2>{title}</h2>
+      <p><strong>Pris:</strong> {price}</p>
+      <p><strong>Ingredienser:</strong> {ingredients}</p>
+      <p><strong>Kategori:</strong> {category}</p>
+    </animated.div>
   );
 }
 

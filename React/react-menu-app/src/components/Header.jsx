@@ -6,9 +6,9 @@ function Header() {
     <header className={styles.header}>
       <h1>Restaurantmeny</h1>
       <nav>
-        <a href="#hovedretter">Hovedretter</a>
-        <a href="#forretter">Forretter</a>
-        <a href="#desserter">Desserter</a>
+        <a href="#forrett">Forretter</a>
+        <a href="#hovedrett">Hovedretter</a>
+        <a href="#dessert">Desserter</a>
       </nav>
     </header>
   );

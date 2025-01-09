@@ -1,13 +1,20 @@
 import React from "react";
-import { meny } from "./data";
+import { menu } from "./data";
 import Menu from "./components/Menu";
 import Header from "./components/Header";
+import './App.css';
 
 function App() {
+  const categoryOrder = ["Forrett", "Hovedrett", "Dessert"];
+
+  const sortedMenu = [...menu].sort(
+    (a, b) => categoryOrder.indexOf(a.category) - categoryOrder.indexOf(b.category)
+  );
+
   return (
-    <div>
+    <div className="appContainer">
       <Header />
-      <Menu retter={meny} />
+      <Menu dishes={sortedMenu} />
     </div>
   );
 }
