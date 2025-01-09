@@ -5,12 +5,12 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
   transition: all 0.3s ease;
-  margin: 8.5px;
+  margin: 20px;
 }
 
 .card:hover {
   transform: scale(1.05);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.8);
 }
 
 .Hovedrett {
