@@ -6,9 +6,13 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "react-scripts start"
   },
+  "homepage": "https://OleM-Kodehode4.github.io/kodehode/React/react-menu-app",
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -24,7 +28,8 @@
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.16",
+    "gh-pages": "^6.3.0",
     "globals": "^15.14.0",
-    "vite": "^6.0.5"
+    "vite": "^6.0.7"
   }
 }
