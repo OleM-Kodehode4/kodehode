@@ -1,0 +1,43 @@
+/* src/components/Dish.module.css */
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: all 0.3s ease;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.8);
+}
+
+.Hovedrett {
+  border: 2px solid #2d6a4f;
+}
+
+.Forrett {
+  border: 2px solid #e9b44c;
+}
+
+.Dessert {
+  border: 2px solid #9d3a5f;
+}
+
+h2 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #333;
+  margin: 20px;
+}
+
+p {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+strong {
+  font-weight: bold;
+}
