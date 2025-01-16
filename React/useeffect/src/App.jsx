@@ -1,5 +1,12 @@
 import { useState, useEffect } from 'react'
 import './App.css'
+import AutoComplete from './Components/AutoComplete'  // Ingen krøll med {} for default eksport
+
+function App() {
+    return <AutoComplete />
+}
+
+export default App
 
 
 /*
@@ -31,21 +38,23 @@ import './App.css'
 
   */
 
-function App() {
-  const [count, setCount] = useState(0);
-  useEffect(() => {
-    console.log("Test")
+// function App() {
+//   const [count, setCount] = useState(0);
+//   useEffect(() => {
+//     console.log("Test")
 
-    // Clean up function - Bruker retur delen for å gjøre dette.
-    // Her kan du f.eks. lukke en nettverksoppkobling eller annen opprydding.
-    return console.log("Clean up function")
-  }, []);
+//     // Clean up function - Bruker retur delen for å gjøre dette.
+//     // Her kan du f.eks. lukke en nettverksoppkobling eller annen opprydding.
+//     return console.log("Clean up function")
+//   }, []);
 
-  return <div>
-    <h1>Overskrift</h1>
-    <p>Teller: {count}</p>
-    <button onClick={() => {setCount(count + 1)}}>Klikk meg her er du snill!</button>
-  </div>;
-}
+//   return <div>
+//     <h1>Overskrift</h1>
+//     <p>Teller: {count}</p>
+//     <button onClick={() => {setCount(count + 1)}}>Klikk meg her er du snill!</button>
+//   </div>;
+// }
 
-export default App
+
+
+// export default App
