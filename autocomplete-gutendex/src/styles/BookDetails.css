@@ -1,0 +1,27 @@
+.book-details {
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #f9f9f9;
+  }
+  
+  .book-details h2 {
+    margin: 0 0 0.5rem;
+    font-size: 1.5rem;
+  }
+  
+  .book-details p {
+    margin: 0.5rem 0;
+    line-height: 1.6;
+  }
+  
+  .book-details .subjects {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    background: #007bff;
+    color: white;
+    border-radius: 4px;
+    display: inline-block;
+  }
+  
