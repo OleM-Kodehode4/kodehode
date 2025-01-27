@@ -1,20 +1,20 @@
 import './App.css'
-import { Link, Route, Routes } from 'react-router-dom'
-import { Home } from './pages/Home'
-import { About } from './pages/About'
+import { Route, Routes } from 'react-router-dom'
 
+import { Navbar } from './components/Navbar'
+import { Contact, About, Home, Socials } from './pages/index'
 
 function App() {
 
   return (
     <div>
-      <nav>
-        <Link to="/">Home</Link>  | <Link to="/about">About</Link>
-      </nav>
+      <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
-      </Routes>
+        <Route path='/contact' element={<Contact />} />
+        <Route path='/socials' element={<Socials />} />
+        </Routes>
     </div>
   )
 }
