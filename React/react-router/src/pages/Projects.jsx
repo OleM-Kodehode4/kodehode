@@ -21,3 +21,26 @@ const mockProjects = {
     }
 }
 
+export const Projects = () => {
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1
+    }
+    return (
+        <div>
+            <Slider {...settings}>
+                {Object.values(mockProjects).map((project, index) => (
+                    <div key={index}>
+                        <h3>{project.title}</h3>
+                        <p>{project.description}</p>
+                    </div>
+                ))}
+            </Slider>
+        </div>
+    )
+}
+
+
