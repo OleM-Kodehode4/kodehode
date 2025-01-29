@@ -1,8 +1,8 @@
 import './App.css'
 import { Route, Routes } from 'react-router-dom'
 
-import { Navbar } from './components/Navbar'
-import { Contact, About, Home, Socials } from './pages/index'
+import { Navbar } from './components/index'
+import { Contact, About, Home, Socials, Projects } from './pages'
 
 function App() {
 
@@ -14,6 +14,7 @@ function App() {
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/socials' element={<Socials />} />
+        <Route path='/projects' element={<Projects />} />
         </Routes>
     </div>
   )
